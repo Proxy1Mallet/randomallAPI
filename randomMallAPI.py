@@ -2,7 +2,7 @@ from random import choices
 from fake_useragent import FakeUserAgent
 from requests import Session
 
-class randomMall:
+class randomMallAPI:
     def __init__(self):
         self.api = 'https://randomall.ru/api/{}'.format
         self.session = Session()
