@@ -113,7 +113,17 @@ class randomMallAPI:
         return req.json()
 
     def surnames(self):
-        req = self.session.post(url=self.api('general/surnames'), headers=self.headers, json=data)
+        req = self.session.post(url = self.api('general/surnames'), headers = self.headers, json = data)
+        return req.json()
+
+    def date(self, yearEnd, monthEnd, dayEnd, yearStart, monthStart, dayStart):
+        data = {'start': f'{yearStart}-{monthStart}-{dayStart}', 'end': f'{yearEnd}-{monthEnd}-{dayEnd}'}
+        req = self.session.post(url = self.api('general/date'), headers = self.headers, json = data)
+        return req.json()
+
+    def time(self, endHour, endMinute, startHour, startMinute):
+        data = {'end': f'{endHour}:{endMinute}', 'start': f'{startHour}:{startMinute}'}
+        req = self.session.post(url = self.api('general/time'), headers = self.headers, json = data)
         return req.json()
 
     def suggestions(self):
