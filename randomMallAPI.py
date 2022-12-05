@@ -1,13 +1,14 @@
 from .util import *
 from random import choices
 from requests import Session
+from string import ascii_lowercase
 
 class randomMallAPI:
     def __init__(self):
         self.api = 'https://randomall.ru/api/{}'.format
         self.session = Session()
         self.headers = headers.Headers().headers
-        self.d = ''.join(choices('abcdefghijklmnopqrstuvwxyz', k=31))
+        self.d = ''.join(choices(ascii_lowercase, k=31))
 
     def fantasyName(self) -> str:
         data = {'d': self.d}
