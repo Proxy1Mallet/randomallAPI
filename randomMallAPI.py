@@ -1,12 +1,12 @@
+from .util import *
 from random import choices
-from fake_useragent import FakeUserAgent
 from requests import Session
 
 class randomMallAPI:
     def __init__(self):
         self.api = 'https://randomall.ru/api/{}'.format
         self.session = Session()
-        self.headers = {'user-agent': FakeUserAgent().random}
+        self.headers = headers.Headers().headers
         self.d = ''.join(choices('abcdefghijklmnopqrstuvwxyz', k=31))
 
     def fantasyName(self):
@@ -57,8 +57,8 @@ class randomMallAPI:
 
     def suggestions(self):
         req = self.session.get(url = self.api('gens/suggestions'), headers = self.headers)
-        return req.json()[0]
+        return objects.Suggestions(req.json()).Suggestions
 
     def gensGenerate(self, id):
         req = self.session.post(url = self.api(f'gens/{id}'), headers = self.headers)
-        return req.json()['msg']
+        return req
