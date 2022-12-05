@@ -95,6 +95,17 @@ class randomMallAPI:
         req = self.session.post(url=self.api('general/fantasy_town'), headers=self.headers, json=data)
         return req.json()
 
+    def countryDescription(self):
+        data = {'d': self.d}
+        req = self.session.post(url=self.api('general/country_description'), headers=self.headers, json=data)
+        return req.json()
+
+    #repeat true or false : str
+    def Numbers(self, count, max, min, repeat):
+        data = {'count': count, 'max': max, 'min': min, 'repeat': repeat, 'symbol': " "}
+        req = self.session.post(url = self.api('general/numbers'), headers = self.headers, json = data)
+        return req.json()
+
     def suggestions(self):
         req = self.session.get(url = self.api('gens/suggestions'), headers = self.headers)
         return objects.Suggestions(req.json()).Suggestions
