@@ -1,2 +1,2 @@
 from .util import headers
-from .randomMallAPI import *
+from .randomallAPI import *
