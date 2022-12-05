@@ -85,6 +85,16 @@ class randomMallAPI:
         req = self.session.post(url=self.api('general/bookname'), headers=self.headers, json=data)
         return req.json()
 
+    def fantasyTown(self):
+        data = {'d': self.d}
+        req = self.session.post(url=self.api('general/fantasy_town'), headers=self.headers, json=data)
+        return req.json()
+
+    def fantasyContinent(self):
+        data = {'d': self.d}
+        req = self.session.post(url=self.api('general/fantasy_town'), headers=self.headers, json=data)
+        return req.json()
+
     def suggestions(self):
         req = self.session.get(url = self.api('gens/suggestions'), headers = self.headers)
         return objects.Suggestions(req.json()).Suggestions
