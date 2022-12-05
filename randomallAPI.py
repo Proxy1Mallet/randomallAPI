@@ -3,7 +3,7 @@ from random import choices
 from requests import Session
 from string import ascii_lowercase
 
-class randomMallAPI:
+class randomallAPI:
     def __init__(self):
         self.api = 'https://randomall.ru/api/{}'.format
         self.session = Session()
