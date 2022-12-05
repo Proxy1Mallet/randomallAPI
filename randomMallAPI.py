@@ -65,6 +65,16 @@ class randomMallAPI:
         req = self.session.get(url=self.api('general/plotkeys'), headers = self.headers, json = data)
         return objects.Plotkeys(req.json()).Plotkeys
 
+    def awkwardMoment(self):
+        data = {'d': self.d}
+        req = self.session.post(url=self.api('general/awkward_moment'), headers=self.headers, json=data)
+        return req.json()
+
+    def unexpectedEvent(self):
+        data = {'d': self.d}
+        req = self.session.post(url=self.api('general/unexpected_event'), headers=self.headers, json=data)
+        return req.json()
+
     def suggestions(self):
         req = self.session.get(url = self.api('gens/suggestions'), headers = self.headers)
         return objects.Suggestions(req.json()).Suggestions
