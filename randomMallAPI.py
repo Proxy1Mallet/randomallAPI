@@ -129,15 +129,15 @@ class randomMallAPI:
         req = self.session.post(url = self.api('general/time'), headers = self.headers, json = data)
         return req.json()
 
-    def countries(self):
+    def countries(self) -> str:
         req = self.session.post(url=self.api('general/countries'), headers=self.headers)
         return req.json()
 
-    def cities(self):
+    def cities(self) -> str:
         req = self.session.post(url=self.api('general/cities'), headers=self.headers)
         return req.json()
 
-    def suggestions(self):
+    def suggestions(self) -> str:
         req = self.session.get(url = self.api('gens/suggestions'), headers = self.headers)
         return objects.Suggestions(req.json()).Suggestions
 
