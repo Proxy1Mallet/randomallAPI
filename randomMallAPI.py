@@ -101,9 +101,19 @@ class randomMallAPI:
         return req.json()
 
     #repeat true or false : str
-    def Numbers(self, count, max, min, repeat):
+    def numbers(self, count, max, min, repeat):
         data = {'count': count, 'max': max, 'min': min, 'repeat': repeat, 'symbol': " "}
         req = self.session.post(url = self.api('general/numbers'), headers = self.headers, json = data)
+        return req.json()
+
+    #1 - Male, 2 - woman
+    def names(self, sex):
+        data = {'sex' : sex}
+        req = self.session.post(url = self.api('general/names'), headers = self.headers, json = data)
+        return req.json()
+
+    def surnames(self):
+        req = self.session.post(url=self.api('general/surnames'), headers=self.headers, json=data)
         return req.json()
 
     def suggestions(self):
