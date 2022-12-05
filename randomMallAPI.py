@@ -17,7 +17,7 @@ class randomMallAPI:
     #var is the floor. 1 - male 0 - female
     def appearance(self, var : str):
         data = {'d': self.d}
-        req = self.session.post(url = self.api('general/appearance'), headers = self.headers, json=data)
+        req = self.session.post(url = self.api('general/appearance'), headers = self.headers, json = data)
         return req.json()
 
     def crowd(self):
