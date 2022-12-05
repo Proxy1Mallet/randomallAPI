@@ -55,6 +55,16 @@ class randomMallAPI:
         req = self.session.post(url = self.api('general/superpowers'), headers = self.headers, json = data)
         return req.json()
 
+    def plot(self):
+        data = {'d': self.d}
+        req = self.session.post(url=self.api('general/plot'), headers = self.headers, json = data)
+        return req.json()
+
+    def plotkeys(self, choice):
+        data = {'choice': choice}
+        req = self.session.get(url=self.api('general/plotkeys'), headers = self.headers, json = data)
+        return objects.Plotkeys(req.json()).Plotkeys
+
     def suggestions(self):
         req = self.session.get(url = self.api('gens/suggestions'), headers = self.headers)
         return objects.Suggestions(req.json()).Suggestions
