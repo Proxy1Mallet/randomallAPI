@@ -116,13 +116,15 @@ class randomMallAPI:
         req = self.session.post(url = self.api('general/surnames'), headers = self.headers, json = data)
         return req.json()
 
-    def date(self, yearEnd, monthEnd, dayEnd, yearStart, monthStart, dayStart):
-        data = {'start': f'{yearStart}-{monthStart}-{dayStart}', 'end': f'{yearEnd}-{monthEnd}-{dayEnd}'}
+    #YYYY-MM-DD
+    def date(self, start, end):
+        data = {'start': start, 'end': end}
         req = self.session.post(url = self.api('general/date'), headers = self.headers, json = data)
         return req.json()
 
-    def time(self, endHour, endMinute, startHour, startMinute):
-        data = {'end': f'{endHour}:{endMinute}', 'start': f'{startHour}:{startMinute}'}
+    #HH:MM
+    def time(self, end, start):
+        data = {'end': end, 'start': start}
         req = self.session.post(url = self.api('general/time'), headers = self.headers, json = data)
         return req.json()
 
@@ -140,4 +142,4 @@ class randomMallAPI:
 
     def gensGenerate(self, id):
         req = self.session.post(url = self.api(f'gens/{id}'), headers = self.headers)
-        return req
+        return req.json()
